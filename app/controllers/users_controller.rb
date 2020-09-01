@@ -13,6 +13,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @wallpost = @user.wallposts
+    puts @wallpost
   end
 
   def new

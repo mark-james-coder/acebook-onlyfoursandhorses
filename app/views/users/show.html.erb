@@ -4,7 +4,30 @@
 <%= link_to 'Delete User', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %>
 <% else %>
 <h1><%= @user.name %>'s Wall </h1>
-<% end %>
+<h4> Add a wallpost: </h4>
 
+<%= form_with(model: [ @user, @user.wallposts.build ], local: true) do |form| %>
+  <%= form.label :message %>
+  <%= form.text_field :content %>
+
+  <%= form.submit "Submit" %>
+<% end %>
+<% end %>
+<table>
+
+  <% @wallpost.reverse.each do |wpost| %>
+    <tr>
+      <td><b><%= wpost.poster %> </b></td>
+
+      <td><%= wpost.content %></td>
+
+      <% if (wpost.poster == current_user.name) || (wpost.user_id == current_user.id) %>
+        <td><%= link_to 'Delete', [wpost.user, wpost],
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
 <%= link_to 'See Posts', user_posts_path(@user) %>
 
