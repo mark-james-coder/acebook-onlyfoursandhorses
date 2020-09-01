@@ -4,7 +4,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
-
+gem 'bootstrap', '~> 4.4.1'
 gem 'bcrypt', '~> 3.1', '>= 3.1.15'
 gem 'jbuilder', '~> 2.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -50,7 +50,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
-group :test do 
+group :test do
   gem 'database_cleaner-active_record'
 end
 
