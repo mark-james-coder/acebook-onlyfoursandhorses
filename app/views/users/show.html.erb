@@ -1,3 +1,4 @@
+
 <% if current_user.id == @user.id %>
 <h1> Your Wall </h1>
 <%= link_to 'Edit User', edit_user_path(@user) %>
@@ -15,16 +16,20 @@
 <% end %>
 <table>
 
-  <% @wallpost.reverse.each do |wpost| %>
+  <% @wallpost.select(&:persisted?).reverse.each do |wpost| %>
     <tr>
       <td><b><%= wpost.poster %> </b></td>
 
       <td><%= wpost.content %></td>
+      <td><%= time_ago_in_words(wpost.created_at) %> </td>
+      <% if (wpost.poster == current_user.name) %>
+      <td> <%= link_to 'Edit', edit_user_wallpost_path(@user, wpost.id) %> </td>
+      <% end %>
 
       <% if (wpost.poster == current_user.name) || (wpost.user_id == current_user.id) %>
         <td><%= link_to 'Delete', [wpost.user, wpost],
                         method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
+                        data: { confirm: 'Are you sure?' } %></td>     
       <% end %>
     </tr>
   <% end %>

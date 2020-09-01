@@ -7,7 +7,22 @@ class WallpostsController < ApplicationController
 
     redirect_to user_path(@user)
   end
+  
+  def edit
+    @user = User.find(params[:user_id])
+    @wallpost = Wallpost.find(params[:id])
+  end
 
+  def update
+    @user = User.find(params[:user_id])
+    @wallpost = Wallpost.find(params[:id])
+    if @wallpost.update(wallpost_params)
+      redirect_to user_path(@user)
+    else
+      render 'edit'
+    end
+  end
+  
   def destroy
     @user = User.find(params[:user_id])
     @wallpost = @user.wallposts.find(params[:id])
