@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:user_id])
+    @user = User.find(params[:id])
   end
 
   def new
@@ -40,6 +40,7 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
 
     if @user.update(user_params)
+      flash[:success] = 'Update Successful!'
       redirect_to @user
     else
       render 'edit'

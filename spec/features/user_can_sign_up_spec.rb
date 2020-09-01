@@ -13,7 +13,7 @@ RSpec.feature 'Sign Up', type: :feature do
     expect(page).to have_field('user[email]')
     expect(page).to have_field('user[password]')
     sign_up
-    expect(page).to have_content('Hello Test Johnson')
+    expect(page).to have_content('Your Wall')
   end
   scenario 'users cannot sign up with invalid credentials' do
     visit '/users/new'
