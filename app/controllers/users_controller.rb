@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:show, :edit, :destroy] 
+  before_action :logged_in_user, only: [:show, :edit, :destroy]
 
   # def revert_url
   #   unless params[:user_id] == session[:user_id]
