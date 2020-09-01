@@ -5,13 +5,8 @@
     </div>
     <% if logged_in? %>
       <ul class='nav navbar-right '>
-<<<<<<< HEAD
-        <li><%= link_to 'Profile', user_path(@user), class: 'mx-2'%></li>
-        <li><%= link_to 'Log out', logout_path, class: 'mx-2'%></li>
-=======
         <li><%= link_to 'Profile', user_path(current_user), class: 'mx-2'%></li>
         <li><%= link_to 'Log out', logout_path, class: 'mx-2'%></li>
->>>>>>> 3163189da80a531b6e7906d125554b2d6d6cc880
       </ul>
     <% else %>
       <ul class='nav navbar-right '>
