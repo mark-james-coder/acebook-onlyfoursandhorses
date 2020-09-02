@@ -1,5 +1,4 @@
 class WallpostcommentsController < ApplicationController
-   
   def create
     @user = User.find(params[:user_id])
     @wallpost = Wallpost.find(params[:wallpost_id])

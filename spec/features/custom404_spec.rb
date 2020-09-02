@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'comments - wallposts' do
-  scenario 'unknown user' do 
+  scenario 'unknown user' do
     sign_up
     visit '/users/2'
     expect(page).to have_content 'This user does not exist'

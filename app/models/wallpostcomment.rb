@@ -1,5 +1,4 @@
 class Wallpostcomment < ApplicationRecord
-  belongs_to :wallpost 
-  
+  belongs_to :wallpost
   validates :content, presence: true
 end

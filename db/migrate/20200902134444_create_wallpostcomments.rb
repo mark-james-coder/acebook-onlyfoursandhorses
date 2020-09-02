@@ -3,7 +3,7 @@ class CreateWallpostcomments < ActiveRecord::Migration[5.1]
     create_table :wallpostcomments do |t|
       t.text :content
       t.string :commenter
-      t.references :wallpost 
+      t.references :wallpost
       t.timestamps
     end
   end

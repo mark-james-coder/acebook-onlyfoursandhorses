@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.feature 'Wall Posts' do
   before(:each) do
-    sign_up 
+    sign_up
     click_link('Log out')
     sign_up_another_account
     visit '/users/1'
@@ -10,7 +10,7 @@ RSpec.feature 'Wall Posts' do
     click_button 'Submit'
   end
 
-  scenario 'can post on someones wall' do 
+  scenario 'can post on someones wall' do
     expect(page).to have_content 'Player 2 Hi, Test!'
     expect(page).to have_content 'less than a minute'
   end
