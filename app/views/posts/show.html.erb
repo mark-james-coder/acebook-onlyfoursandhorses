@@ -4,7 +4,16 @@
 <br>
 <p> <%= @post.created_at.strftime('%B %d %Y, %l:%M%P') %></p>
 <br>
-<% if @post.user.id == current_user.id %>
+<% @post.postcomments.each do |pc| %>
+  <b><%= pc.commenter %></b>
+  <%= pc.content %><br>
+<% end %>
+<%= form_for [@post, @post.postcomments.build], url: { controller: :postcomments, action: :create, post_id: @post.id }, method: :create do |form| %>
+  <%= form.text_field :content %>
+  <%= form.submit 'Add comment'%>
+<% end %>
+
+<%if @post.user.id == current_user.id %>
   <%= link_to 'Update', edit_user_post_path(@user) %>
   <%= link_to 'Delete', [@post.user, @post],
                           method: :delete,
