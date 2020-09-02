@@ -6,9 +6,18 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  # def show
+  #   @user = User.find(params[:user_id])
+  #   @post = Post.find(params[:id])
+  # end
+
   def show
     @user = User.find(params[:user_id])
-    @post = Post.find(params[:id])
+    if @post = Post.find_by_id(params[:id]).present?
+      @post = Post.find(params[:id])
+    else
+      post_not_found
+    end
   end
 
   def create
