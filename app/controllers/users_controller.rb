@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:show, :edit, :destroy] 
+  before_action :logged_in_user, only: [:show, :edit, :destroy]
 
   # def revert_url
   #   unless params[:user_id] == session[:user_id]
@@ -12,7 +12,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:user_id])
+    @user = User.find(params[:id])
+    @wallpost = @user.wallposts
   end
 
   def new
@@ -40,6 +41,7 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
 
     if @user.update(user_params)
+      flash[:success] = 'Update Successful!'
       redirect_to @user
     else
       render 'edit'

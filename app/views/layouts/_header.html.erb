@@ -5,12 +5,17 @@
     </div>
     <% if logged_in? %>
       <ul class='nav navbar-right '>
+<<<<<<< HEAD
         <li><%= link_to 'Profile', user_path(current_user), class: 'mx-2'%></li> 
         <li><%= link_to 'Log out', logout_path, class: 'mx-2'%></li> 
+=======
+        <li><%= link_to 'Profile', user_path(current_user), class: 'mx-2'%></li>
+        <li><%= link_to 'Log out', logout_path, class: 'mx-2'%></li>
+>>>>>>> 00981fc8b0cbf0b8277a3e97af31be89ae4edacf
       </ul>
     <% else %>
       <ul class='nav navbar-right '>
-        <li><%= link_to 'Log in', login_path, class: 'mx-2' %></li> 
+        <li><%= link_to 'Log in', login_path, class: 'mx-2' %></li>
         <li><%= link_to 'Sign up', new_user_path, class: 'mx-2' %></li>
       </ul>
     <% end %>
