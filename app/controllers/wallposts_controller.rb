@@ -31,6 +31,11 @@ class WallpostsController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def show
+    @user = User.find(params[:user_id])
+    @wallpost = Wallpost.find(params[:id])
+  end
+
   private
 
   def wallpost_params
