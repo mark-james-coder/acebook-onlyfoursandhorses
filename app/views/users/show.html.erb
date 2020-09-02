@@ -18,12 +18,12 @@
 
   <% @wallpost.select(&:persisted?).reverse.each do |wpost| %>
     <tr>
-      <td><b><%= wpost.poster %> </b></td>
+      <td><b><%= wpost.poster %> </b>
 
-      <td><%= wpost.content %></td>
-      <td><%= time_ago_in_words(wpost.created_at) %> </td>
+      <%= wpost.content %>
+      <%= time_ago_in_words(wpost.created_at) %>
       <% if (wpost.poster == current_user.name) %>
-      <td> <%= link_to 'Edit', edit_user_wallpost_path(@user, wpost.id) %> </td>
+        <%= link_to 'Edit', edit_user_wallpost_path(@user, wpost.id) %> </td>
       <% end %>
 
       <% if (wpost.poster == current_user.name) || (wpost.user_id == current_user.id) %>
@@ -35,15 +35,15 @@
     </tr>
     <% wpost.wallpostcomments.select(&:persisted?).each do |wpostcomment| %>
       <tr>
-        <td><b><%= wpostcomment.commenter %> </b></td>
-        <td> <%= wpostcomment.content %> </td>
+        <td><b><%= wpostcomment.commenter %> </b>
+        <%= wpostcomment.content %> </td>
       </tr>
       
     <% end %>
     <tr>
-    <%= form_for [wpost.user, wpost, wpost.wallpostcomments.build], url: { controller: :wallpostcomments, action: :create, user_id: wpost.user.id, wallpost_id: wpost.id }, method: :create do |form| %>
+    <td><%= form_for [wpost.user, wpost, wpost.wallpostcomments.build], url: { controller: :wallpostcomments, action: :create, user_id: wpost.user.id, wallpost_id: wpost.id }, method: :create do |form| %>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-     <td> <%= form.text_field :content %> 
+      <%= form.text_field :content %> 
       <%= form.submit 'Add comment'%> </td>
     <% end %>
     </tr>
