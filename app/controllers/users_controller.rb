@@ -11,9 +11,18 @@ class UsersController < ApplicationController
     redirect_to '/'
   end
 
+  # def show
+  #     @user = User.find(params[:id])
+  #     raise ActionController::RoutingError.new('Not Found') if @user.blank?
+  #     @wallpost = @user.wallposts
+  # end
   def show
-    @user = User.find(params[:id])
-    @wallpost = @user.wallposts
+    if @user = User.find_by_id(params[:id]).present?
+      @user = User.find(params[:id])
+      @wallpost = @user.wallposts
+    else
+      user_not_found
+    end
   end
 
   def new

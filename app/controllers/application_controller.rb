@@ -12,4 +12,10 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+  def user_not_found
+    render file: "#{Rails.root}/public/user_not_found.html", layout: true, status: :not_found
+  end
+  def post_not_found
+    render file: "#{Rails.root}/public/post_not_found.html", layout: true, status: :not_found
+  end
 end
