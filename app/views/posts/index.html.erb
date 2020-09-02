@@ -28,7 +28,7 @@
     <%= post.id %><br>
   <tr>
       <td><%= post.message %></td>
-      <td><%= link_to 'Show', user_posts_path(@user) %></td>
+      <td><%= link_to 'Show', user_post_path(@user, post.id) %></td>
       <td><%= link_to 'Delete', [post.user, post],
                         method: :delete,
                         data: { confirm: 'Are you sure?' } %></td>
