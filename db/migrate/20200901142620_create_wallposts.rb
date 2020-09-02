@@ -4,7 +4,6 @@ class CreateWallposts < ActiveRecord::Migration[5.1]
       t.text :content
       t.references :user
       t.string :poster
-      
       t.timestamps
     end
   end

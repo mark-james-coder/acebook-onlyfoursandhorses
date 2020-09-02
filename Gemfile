@@ -4,9 +4,11 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
-gem 'bootstrap', '~> 4.4.1'
 gem 'bcrypt', '~> 3.1', '>= 3.1.15'
+gem 'bootstrap', '~> 4.4.1'
 gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -14,8 +16,6 @@ gem 'pg'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.1'
 gem 'rubocop-rails'
-gem "jquery-rails"
-gem 'jquery-ui-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'simplecov', require: false, group: :test
