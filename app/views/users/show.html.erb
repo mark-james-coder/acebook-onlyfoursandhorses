@@ -14,42 +14,47 @@
   <%= form.submit "Submit" %>
 <% end %>
 <% end %>
-<table>
+<br>
 
   <% @wallpost.select(&:persisted?).reverse.each do |wpost| %>
-    <tr>
-      <td><b><%= wpost.poster %> </b>
+
+      <b><%= wpost.poster %> </b>
 
       <%= wpost.content %>
       <%= time_ago_in_words(wpost.created_at) %>
       <% if (wpost.poster == current_user.name) %>
         <%= link_to 'Edit', edit_user_wallpost_path(@user, wpost.id) %> </td>
       <% end %>
-
-      <% if (wpost.poster == current_user.name) || (wpost.user_id == current_user.id) %>
-        <td><%= link_to 'Delete', [wpost.user, wpost],
-                        method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>     
-      <% end %>
-
-    </tr>
-    <% wpost.wallpostcomments.select(&:persisted?).each do |wpostcomment| %>
-      <tr>
-        <td><b><%= wpostcomment.commenter %> </b>
-        <%= wpostcomment.content %> </td>
-      </tr>
       
+      <% if (wpost.poster == current_user.name) || (wpost.user_id == current_user.id) %>
+        <%= link_to 'Delete', [wpost.user, wpost],
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %>    
+      <% end %>
+  
+   
+    <br>
+    <ul>
+    <% wpost.wallpostcomments.select(&:persisted?).each do |wpostcomment| %>
+      
+        <li><b><%= wpostcomment.commenter %> </b>
+        <%= wpostcomment.content %> 
+        <% if (wpostcomment.commenter == current_user.name) || (wpostcomment.wallpost.poster == current_user.id) || (@user.id == current_user.id)  %>
+        <%= link_to 'Delete', [@user, wpostcomment.wallpost, wpostcomment],
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %> </li>
+        <% end %>
+        
     <% end %>
-    <tr>
-    <td><%= form_for [wpost.user, wpost, wpost.wallpostcomments.build], url: { controller: :wallpostcomments, action: :create, user_id: wpost.user.id, wallpost_id: wpost.id }, method: :create do |form| %>
+    </ul>
+  
+    <%= form_for [wpost.user, wpost, wpost.wallpostcomments.build], url: { controller: :wallpostcomments, action: :create, user_id: wpost.user.id, wallpost_id: wpost.id }, method: :create do |form| %>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <%= form.text_field :content %> 
-      <%= form.submit 'Add comment'%> </td>
+      <%= form.submit 'Add comment'%> 
     <% end %>
-    </tr>
+    <br><br>
   <% end %>
-  
-</table>
 
   
 <%= link_to 'See Posts', user_posts_path(@user) %>
