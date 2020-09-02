@@ -1,16 +1,28 @@
 
 <% if current_user.id == @user.id %>
-<h1> Your Wall </h1>
-<%= link_to 'Edit User', edit_user_path(@user) %>
-<%= link_to 'Delete User', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %>
+<h1> My Wall </h1>
+<h2> Write something here for your own records </h2>
+<p> If you want to post to general feed, go to <%= link_to 'Posts', user_posts_path(@user) %></p>
+<%# link_to 'Edit User', edit_user_path(@user) %>
+<%# link_to 'Delete User', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<%= form_with(model: [ @user, @user.wallposts.build ], local: true) do |form| %>
+  <%= form.label :message %>
+  <br>
+  <%= form.text_area :content %>
+  <br>
+  <%= form.submit "Submit" %>
+<% end %>
+
 <% else %>
 <h1><%= @user.name %>'s Wall </h1>
 <h4> Add a wallpost: </h4>
 
 <%= form_with(model: [ @user, @user.wallposts.build ], local: true) do |form| %>
   <%= form.label :message %>
-  <%= form.text_field :content %>
-
+  <br>
+  <%= form.text_area :content %>
+  <br>
   <%= form.submit "Submit" %>
 <% end %>
 <% end %>
@@ -21,7 +33,7 @@
       <td><b><%= wpost.poster %> </b></td>
 
       <td><%= wpost.content %></td>
-      <td><%= time_ago_in_words(wpost.created_at) %> </td>
+      <td><%= time_ago_in_words(wpost.created_at) %> ago</td>
       <% if (wpost.poster == current_user.name) %>
       <td> <%= link_to 'Edit', edit_user_wallpost_path(@user, wpost.id) %> </td>
       <% end %>
@@ -29,10 +41,9 @@
       <% if (wpost.poster == current_user.name) || (wpost.user_id == current_user.id) %>
         <td><%= link_to 'Delete', [wpost.user, wpost],
                         method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>     
+                        data: { confirm: 'Are you sure?' } %></td>
       <% end %>
     </tr>
   <% end %>
 </table>
-<%= link_to 'See Posts', user_posts_path(@user) %>
-
+<%# link_to 'See Posts', user_posts_path(@user) %>
