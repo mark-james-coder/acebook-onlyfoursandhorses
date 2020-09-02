@@ -31,8 +31,22 @@
                         method: :delete,
                         data: { confirm: 'Are you sure?' } %></td>     
       <% end %>
+
     </tr>
+    <% @wallpost.wallpostcomments.select(&:persisted?).each do |wpostcomment| %>
+      <tr>
+        <td><b><%= wpostcomment.commenter %> </b></td>
+        <td> <%= wpostcomment.content %> </td>
+      </tr>
+    <% end %>
+    <%= form_for [@wallpost, @wallpost.wallpostcomments.build], url: { controller: :wallpostcomments, action: :create, wallpost_id: @wallpost.id }, method: :create do |form| %>
+      <%= form.text_field :content %>
+      <%= form.submit 'Add comment'%>
+    <% end %>
   <% end %>
+  
 </table>
+
+  
 <%= link_to 'See Posts', user_posts_path(@user) %>
 

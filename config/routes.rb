@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     resources :posts do
       resources :postcomments
     end
-    resources :wallposts
+    resources :wallposts do 
+      resources :wallpostcomments
+    end
   end
 
   root 'welcome#index'

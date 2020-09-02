@@ -1,0 +1,2 @@
+class WallpostcommentsController < ApplicationController
+end
