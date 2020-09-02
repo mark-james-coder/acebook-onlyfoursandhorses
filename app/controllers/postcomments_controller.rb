@@ -11,6 +11,14 @@ class PostcommentsController < ApplicationController
     redirect_to user_post_path(@user, @post)
   end
 
+  def destroy
+    @user = User.find(params[:user_id])
+    @post = Post.find(params[:post_id])
+    @postcomment = @post.postcomments.find(params[:id])
+    @postcomment.destroy
+    redirect_to user_post_path(@user, @post)
+  end
+
   private
 
   def postcomment_params
