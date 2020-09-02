@@ -33,16 +33,20 @@
       <% end %>
 
     </tr>
-    <% @wallpost.wallpostcomments.select(&:persisted?).each do |wpostcomment| %>
+    <% wpost.wallpostcomments.select(&:persisted?).each do |wpostcomment| %>
       <tr>
         <td><b><%= wpostcomment.commenter %> </b></td>
         <td> <%= wpostcomment.content %> </td>
       </tr>
+      
     <% end %>
-    <%= form_for [@wallpost, @wallpost.wallpostcomments.build], url: { controller: :wallpostcomments, action: :create, wallpost_id: @wallpost.id }, method: :create do |form| %>
-      <%= form.text_field :content %>
-      <%= form.submit 'Add comment'%>
+    <tr>
+    <%= form_for [wpost.user, wpost, wpost.wallpostcomments.build], url: { controller: :wallpostcomments, action: :create, user_id: wpost.user.id, wallpost_id: wpost.id }, method: :create do |form| %>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+     <td> <%= form.text_field :content %> 
+      <%= form.submit 'Add comment'%> </td>
     <% end %>
+    </tr>
   <% end %>
   
 </table>

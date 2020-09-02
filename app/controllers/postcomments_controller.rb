@@ -1,8 +1,8 @@
 class PostcommentsController < ApplicationController
 
-  def new
-    @postcomment = Postcomment.new
-  end
+  # def new
+  #   @postcomment = Postcomment.new
+  # end
 
   def create
     @user = User.find(params[:user_id])
