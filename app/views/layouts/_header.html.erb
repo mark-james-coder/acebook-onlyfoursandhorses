@@ -1,9 +1,13 @@
 <nav class='navbar mb-2'>
   <div class='container-fluid'>
     <div class='navbar-header'>
+    <% if logged_in? %>
       <%= link_to user_path(current_user) do %>
       <%=image_tag("acebook_logo.png", size: "210x70")%>
-      <% end %>
+        <% end %>
+      <% else %>
+      <%=image_tag("acebook_logo.png", size: "210x70")%>
+    <% end %>
     </div>
     <% if logged_in? %>
       <ul class='nav navbar-right '>
