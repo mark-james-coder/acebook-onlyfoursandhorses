@@ -2,14 +2,39 @@
 
 <p style="white-space: pre-line"><%= @post.message %></p>
 <br>
+<<<<<<< HEAD
 <p> <%= @post.created_at.in_time_zone("London").strftime('%B %d %Y, %l:%M%P') %> </p>
 <br>
 <% if @post.user.id == current_user.id %>
+=======
+<p> <%= @post.created_at.strftime('%B %d %Y, %l:%M%P') %>
+<%if @post.user.id == current_user.id %>
+>>>>>>> d0a14cff6949bf4aadc492394cd74502f6fae85c
   <%= link_to 'Update', edit_user_post_path(@user) %>
   <%= link_to 'Delete', [@post.user, @post],
                           method: :delete,
                           data: { confirm: 'Are you sure?' } %>
 <% end %>
+</p>
+<br>
+
+<% @post.postcomments.select(&:persisted?).each do |pc| %>
+  <b><%= pc.commenter %></b>
+  <%= pc.content %>
+  <% if pc.commenter == current_user.name %>
+    <%= link_to 'Delete', [@user, pc.post, pc],
+                            method: :delete,
+                            data: { confirm: 'Are you sure?' } %>
+  <% end %>
+  <br>
+<% end %>
+
+<%= form_for [@post, @post.postcomments.build], url: { controller: :postcomments, action: :create, post_id: @post.id }, method: :create do |form| %>
+  <%= form.text_field :content %>
+  <%= form.submit 'Add comment'%>
+<% end %>
+
+
 </p>
 
 <%= link_to 'All posts', user_posts_path %>

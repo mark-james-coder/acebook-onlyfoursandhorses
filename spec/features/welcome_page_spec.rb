@@ -3,4 +3,9 @@ feature 'welcome page' do
     visit '/'
     expect(page).to have_content("New to Acebook? Sign up, it's free!")
   end
+  scenario 'redirects logged in user' do
+    sign_up
+    visit '/'
+    expect(current_path).to eq('/users/1')
+  end
 end
