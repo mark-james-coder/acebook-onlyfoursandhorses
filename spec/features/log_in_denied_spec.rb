@@ -4,7 +4,7 @@ RSpec.feature 'log in denied' do
   scenario 'when email not correct' do
     sign_up
     click_link('Log out')
-    click_link('Log in')
+    visit('/login')
     fill_in 'session[email]', with: 'wrongjohnson@testmail.com'
     fill_in 'session[password]', with: '123456'
     click_button 'Log in'

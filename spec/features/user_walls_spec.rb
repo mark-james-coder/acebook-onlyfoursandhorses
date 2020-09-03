@@ -6,15 +6,16 @@ RSpec.feature 'User Walls' do
     sign_up_another_account
     visit '/users/1'
     expect(page).to have_content "Test Johnson's Wall"
-    click_link 'Profile'
-    expect(page).to have_content 'Your Wall'
+    click_link 'My Wall'
+    expect(page).to have_content 'My Wall'
   end
   scenario 'cannot edit or delete someones profile' do
     sign_up
     click_link('Log out')
     sign_up_another_account
     visit '/users/1'
-    expect(page).to_not have_link 'Edit User'
-    expect(page).to_not have_link 'Delete User'
+    click_link 'Edit Account'
+    expect(page).to have_content 'Player 2'
   end
+
 end

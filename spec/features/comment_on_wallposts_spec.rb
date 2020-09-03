@@ -10,8 +10,10 @@ RSpec.feature 'comments - wallposts' do
     click_button 'Submit'
     fill_in 'wallpostcomment[content]', with: 'Test Comment'
     click_button 'Add comment'
-    expect(page).to have_content 'Player 2 Test Comment'
+    expect(page).to have_content 'Player 2'
+    expect(page).to have_content 'Test Comment'
     all(:link, { text: 'Delete' })[1].click
-    expect(page).to_not have_content 'Player 2 Test Comment'
+    expect(page).to_not have_content 'Player 2'
+    expect(page).to_not have_content 'Test Comment'
   end
 end

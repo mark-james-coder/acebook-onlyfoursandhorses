@@ -2,7 +2,7 @@
 
 <p style="white-space: pre-line"><%= @post.message %></p>
 <br>
-<p> <%= @post.created_at.in_time_zone("London").strftime('%B %d %Y, %l:%M%P') %> </p>
+<p> Created by <b><%= @post.user.name %></b> at <%= @post.created_at.in_time_zone("London").strftime('%B %d %Y, %l:%M%P') %> </p>
 <br>
 <% if @post.user.id == current_user.id %>
   <%= link_to 'Update', edit_user_post_path(@user) %>
@@ -14,13 +14,14 @@
 <br>
 
 <% @post.postcomments.select(&:persisted?).each do |pc| %>
-  <b><%= pc.commenter %></b>
+  <li><b><%= pc.commenter %></b>
+  (<%= time_ago_in_words(pc.created_at) %> ago):
   <%= pc.content %>
   <% if pc.commenter == current_user.name %>
-    <%= link_to 'Delete', [@user, pc.post, pc],
+    <%= link_to 'Delete comment', [@user, pc.post, pc],
                             method: :delete,
                             data: { confirm: 'Are you sure?' } %>
-  <% end %>
+  <% end %></li>
   <br>
 <% end %>
 
@@ -33,5 +34,3 @@
 </p>
 
 <%= link_to 'All posts', user_posts_path %>
-
-

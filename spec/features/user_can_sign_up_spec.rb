@@ -1,11 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature 'Sign Up', type: :feature do
-  scenario 'sign up button directs to /users/new' do
+  scenario 'user can sign up on welcome page' do
     visit '/'
-    click_link('Sign up')
-    expect(page).to have_content('Register as a User below')
-    expect(current_path).to eq('/users/new')
+    expect(page).to have_content("New to Acebook? Sign up, it's free!")
   end
   scenario 'sign up form registers user' do
     visit '/users/new'
@@ -13,7 +11,7 @@ RSpec.feature 'Sign Up', type: :feature do
     expect(page).to have_field('user[email]')
     expect(page).to have_field('user[password]')
     sign_up
-    expect(page).to have_content('Your Wall')
+    expect(page).to have_content('My Wall')
   end
   scenario 'users cannot sign up with invalid credentials' do
     visit '/users/new'
