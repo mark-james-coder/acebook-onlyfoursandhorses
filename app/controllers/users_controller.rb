@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: %i[show edit destroy]
 
-  def index
-    redirect_to '/'
-  end
-
   def show
     if User.find_by(slug: params[:slug])
       @user = User.find_by(slug: params[:slug])
@@ -53,10 +49,10 @@ class UsersController < ApplicationController
     redirect_to '/'
   end
 
-  def search  
+  def search
     if User.find_by(slug: params[:search].parameterize)
       @parameter = params[:search].parameterize
-      @result = User.find_by(slug: @parameter) 
+      @result = User.find_by(slug: @parameter)
       redirect_to user_path(@result)
     else
       @user = current_user

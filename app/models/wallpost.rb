@@ -5,6 +5,6 @@ class Wallpost < ApplicationRecord
   before_create :render_likes
 
   def render_likes
-    self.likes = 0 
+    self.likes = 0
   end
 end

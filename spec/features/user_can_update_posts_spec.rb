@@ -9,6 +9,9 @@ RSpec.feature 'Posts', type: :feature do
     click_button 'Submit'
     first(:link, 'Show').click
     first(:link, 'Update').click
+    fill_in 'post[message]', with: ''
+    click_button 'Update Post'
+    expect(page).to have_content "Message can't be blank"
     fill_in 'post[message]', with: 'Something else'
     click_button 'Update Post'
     expect(page).not_to have_content('Testing')

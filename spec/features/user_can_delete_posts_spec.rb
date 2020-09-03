@@ -18,6 +18,7 @@ RSpec.feature 'deleting posts', type: :feature do
     fill_in 'post[message]', with: 'Test content'
     click_button 'Submit'
     click_link('Delete')
+    expect(page).to have_content 'All Posts'
     expect(page).not_to have_content('Test content')
   end
 end

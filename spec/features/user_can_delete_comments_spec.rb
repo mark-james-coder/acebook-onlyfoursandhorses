@@ -9,7 +9,7 @@ RSpec.feature 'post comments' do
     click_button 'Submit'
     click_link 'Show'
     expect(page).to have_content('Message text')
-    fill_in 'postcomment[content]', with: "Commenting"
+    fill_in 'postcomment[content]', with: 'Commenting'
     click_button 'Add comment'
     expect(page).to have_content('Commenting')
     click_link('Delete comment')
