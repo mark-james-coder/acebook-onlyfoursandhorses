@@ -9,6 +9,19 @@
       <%=image_tag("acebook_logo.png", size: "210x70")%>
     <% end %>
     </div>
+   
+   <% if logged_in? %>
+    <%= form_tag(search_path, :method => "search",   
+    class: 'navbar-form navbar-left') do %>  
+  <div class="input-group">  
+    <%= search_field_tag :search, params[:search], placeholder: "Enter user's name", class: "form-control" %>  
+    <div class="input-group-btn">  
+      <%= button_tag "Search", :class => 'btn btn-info',:id => 'search_user'%>  
+      
+    </div>  
+  </div>  
+ <% end %>
+<% end %>
     <% if logged_in? %>
       <ul class='nav navbar-right '>
         <li><%= link_to 'Edit Account', edit_user_path(current_user), class: 'mx-2'%></li>

@@ -1,13 +1,7 @@
 require 'rails_helper'
 RSpec.feature 'Wall Posts' do
   before(:each) do
-    sign_up
-    click_link('Log out')
-    sign_up_another_account
-    visit '/users/test-johnson'
-    expect(page).to have_content 'Add a wallpost:'
-    fill_in 'wallpost[content]', with: 'Hi, Test!'
-    click_button 'Submit'
+    post_on_someones_wall
   end
 
   scenario 'can post on someones wall' do
@@ -22,6 +16,9 @@ RSpec.feature 'Wall Posts' do
   end
   scenario 'poster can update their post' do
     click_link 'Edit'
+    fill_in 'wallpost[content]', with: ''
+    click_button 'Update Wallpost'
+    expect(page).to have_content "Content can't be blank"
     fill_in 'wallpost[content]', with: 'Updated Test!'
     click_button 'Update Wallpost'
     expect(page).to have_content 'Player 2'

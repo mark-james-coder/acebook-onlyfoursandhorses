@@ -11,7 +11,7 @@ class User < ApplicationRecord
   before_create :slugify
 
   def to_param
-    self.slug
+    slug
   end
 
   def slugify

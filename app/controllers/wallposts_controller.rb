@@ -30,6 +30,13 @@ class WallpostsController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def add_like
+    @user = User.find_by(slug: params[:user_slug])
+    @wallpost = Wallpost.find_by(id: params[:wallpost_id])
+    @wallpost.update(likes: (@wallpost.likes + 1))
+    redirect_to user_path(@user)
+  end
+
   private
 
   def wallpost_params
