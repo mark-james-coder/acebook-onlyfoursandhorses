@@ -24,7 +24,7 @@ First, clone this repository. Then:
 
 ## User Stories
 
-### Sign-up
+### Sign Up
 
 ```
 As a new User
