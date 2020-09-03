@@ -9,7 +9,8 @@
       <%=image_tag("acebook_logo.png", size: "210x70")%>
     <% end %>
     </div>
-
+   
+   <% if logged_in? %>
     <%= form_tag(search_path, :method => "search",   
     class: 'navbar-form navbar-left') do %>  
   <div class="input-group">  
@@ -19,7 +20,7 @@
       
     </div>  
   </div>  
-
+ <% end %>
 <% end %>
     <% if logged_in? %>
       <ul class='nav navbar-right '>
