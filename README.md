@@ -1,4 +1,4 @@
-# AceBook (Rails Facebook Clone)
+# Acebook (Rails Facebook Clone)
 
 ## Project on heroku:
 
