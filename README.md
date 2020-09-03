@@ -1,10 +1,10 @@
 # AceBook (Rails Facebook Clone)
 
-## To view project on heroku:
+## Project on heroku:
 
 http://********.herokuapp.com
 
-## Instructions
+## Instructions to use locally:
 
 First, clone this repository. Then:
 
