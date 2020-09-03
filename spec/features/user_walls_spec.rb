@@ -14,7 +14,7 @@ RSpec.feature 'User Walls' do
     click_link('Log out')
     sign_up_another_account
     visit '/users/test-johnson'
-    click_link 'Edit Account'
+    click_link 'Account'
     expect(page).to have_content 'Player 2'
   end
 end
