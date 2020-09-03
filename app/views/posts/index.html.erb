@@ -4,8 +4,8 @@
 
   <% @posts.reverse.each do |post| %>
     <tr>
-      <td><strong><%= post.user.name %>:  </strong></td>
-      <td><%= time_ago_in_words(post.created_at) %></td>
+      <td><strong><%= post.user.name %>  </strong></td>
+      <td>(<%= time_ago_in_words(post.created_at) %> ago):</td>
       <td><%= post.message %></td>
       <td><%= link_to 'Show', user_post_path(@user, post.id)%></td>
       <% if post.user.id == current_user.id %>
@@ -17,7 +17,7 @@
   <% end %>
 </table>
 
-<h2>Your Posts</h2>
+<!--<h2>Your Posts</h2>
 <table>
 <% @user.posts.reverse.each do |post| %>
   <p>
@@ -33,4 +33,4 @@
                         data: { confirm: 'Are you sure?' } %></td>
     </tr>
     </table>
-<% end %>
+<% end %>-->

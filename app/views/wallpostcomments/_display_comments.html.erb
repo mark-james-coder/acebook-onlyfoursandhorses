@@ -1,7 +1,9 @@
-<li><b><%= wpostcomment.commenter %> </b>
-<%= wpostcomment.content %> 
+<li><b><%= wpostcomment.commenter %>
+  (<%= time_ago_in_words(wpostcomment.created_at) %> ago):</b>
+<%= wpostcomment.content %>
+
 <% if (wpostcomment.commenter == current_user.name) || (wpostcomment.wallpost.poster == current_user.id) || (@user.id == current_user.id)  %>
-  <%= link_to 'Delete', [@user, wpostcomment.wallpost, wpostcomment],
+  <%= link_to 'Delete comment', [@user, wpostcomment.wallpost, wpostcomment],
                                                       method: :delete,
                                                       data: { confirm: 'Are you sure?' } %> </li>
 <% end %>

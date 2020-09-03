@@ -17,7 +17,7 @@ RSpec.feature 'deleting posts', type: :feature do
     click_link 'New post'
     fill_in 'post[message]', with: 'Test content'
     click_button 'Submit'
-    first(:link, 'Delete').click
+    click_link('Delete')
     expect(page).not_to have_content('Test content')
   end
 end

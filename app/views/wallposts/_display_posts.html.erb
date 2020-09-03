@@ -1,7 +1,7 @@
-<b><%= wpost.poster %> </b>
+<b><%= wpost.poster %>
+(<%= time_ago_in_words(wpost.created_at) %> ago):</b>
+<td><%= wpost.content %>
 
-<%= wpost.content %>
-<%= time_ago_in_words(wpost.created_at) %>
 <% if (wpost.poster == current_user.name) %>
   <%= link_to 'Edit', edit_user_wallpost_path(@user, wpost.id) %> </td>
 <% end %>
@@ -9,5 +9,5 @@
 <% if (wpost.poster == current_user.name) || (wpost.user_id == current_user.id) %>
   <%= link_to 'Delete', [wpost.user, wpost],
                   method: :delete,
-                  data: { confirm: 'Are you sure?' } %>    
+                  data: { confirm: 'Are you sure?' } %>
 <% end %><br>

@@ -5,13 +5,13 @@ RSpec.feature 'Posts', type: :feature do
     sign_up
     click_link 'See Posts'
     click_link 'New post'
-    fill_in 'post[message]', with: 'Test'
+    fill_in 'post[message]', with: 'Testing'
     click_button 'Submit'
     first(:link, 'Show').click
     first(:link, 'Update').click
     fill_in 'post[message]', with: 'Something else'
     click_button 'Update Post'
-    expect(page).not_to have_content('Test')
+    expect(page).not_to have_content('Testing')
     expect(page).to have_content('Something else')
   end
 end
