@@ -5,7 +5,7 @@ RSpec.feature 'comments - wallposts' do
     sign_up
     click_link 'Log out'
     sign_up_another_account
-    visit '/users/1'
+    visit '/users/test-johnson'
     fill_in 'wallpost[content]', with: 'Hi, Test!'
     click_button 'Submit'
     fill_in 'wallpostcomment[content]', with: 'Test Comment'

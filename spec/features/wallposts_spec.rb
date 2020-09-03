@@ -4,7 +4,7 @@ RSpec.feature 'Wall Posts' do
     sign_up
     click_link('Log out')
     sign_up_another_account
-    visit '/users/1'
+    visit '/users/test-johnson'
     expect(page).to have_content 'Add a wallpost:'
     fill_in 'wallpost[content]', with: 'Hi, Test!'
     click_button 'Submit'

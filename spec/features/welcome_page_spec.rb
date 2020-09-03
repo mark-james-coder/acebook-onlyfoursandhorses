@@ -6,6 +6,6 @@ feature 'welcome page' do
   scenario 'redirects logged in user' do
     sign_up
     visit '/'
-    expect(current_path).to eq('/users/1')
+    expect(current_path).to eq('/users/test-johnson')
   end
 end
