@@ -1,8 +1,4 @@
 feature 'editing users' do
-  scenario 'there is an edit users button' do
-    sign_up
-    expect(page).to have_link 'Account'
-  end
   scenario 'takes us to a new form' do
     sign_up
     click_link 'Account'

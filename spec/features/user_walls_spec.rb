@@ -17,5 +17,4 @@ RSpec.feature 'User Walls' do
     click_link 'Account'
     expect(page).to have_content 'Player 2'
   end
-
 end

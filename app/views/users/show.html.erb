@@ -25,6 +25,10 @@
 <% @wallpost.select(&:persisted?).reverse.each do |wpost| %>
 
     <%= render 'wallposts/display_posts', wpost: wpost %>
+    <% if wpost.likes != 0 %>
+        <td><%= pluralize(wpost.likes, 'like') %> </td>
+    <% end %>
+    <td><%= render 'wallposts/likes_button', wpost: wpost %> </td>
 
   <ul>
   <% wpost.wallpostcomments.select(&:persisted?).each do |wpostcomment| %>

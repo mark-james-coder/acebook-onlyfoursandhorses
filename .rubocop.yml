@@ -12,5 +12,4 @@ Rails/UniqueValidationWithoutIndex:
   Enabled: false
 Rails/HelperInstanceVariable:
   Enabled: false
-Metrics/AbcSize:
-  Enabled: false
+  
