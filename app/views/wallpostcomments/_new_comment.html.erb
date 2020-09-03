@@ -1,4 +1,4 @@
-<%= form_for [wpost.user, wpost, wpost.wallpostcomments.build], url: { controller: :wallpostcomments, action: :create, user_id: wpost.user.id, wallpost_id: wpost.id }, method: :create do |form| %>
+<%= form_for [wpost.user, wpost, wpost.wallpostcomments.build], url: { controller: :wallpostcomments, action: :create, user_slug: wpost.user.slug, wallpost_id: wpost.id }, method: :create do |form| %>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <%= form.text_field :content %> 
   <%= form.submit 'Add comment'%> 
