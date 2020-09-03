@@ -2,7 +2,7 @@
   <div class='container-fluid'>
     <div class='navbar-header'>
     <% if logged_in? %>
-      <%= link_to user_path(current_user) do %>
+      <%= link_to user_posts_path(current_user) do %>
       <%=image_tag("acebook_logo.png", size: "210x70")%>
         <% end %>
       <% else %>
@@ -11,8 +11,7 @@
     </div>
     <% if logged_in? %>
       <ul class='nav navbar-right '>
-        <li><%= link_to 'Edit Account', edit_user_path(current_user), class: 'mx-2'%></li>
-        <li><%= link_to 'Delete Account', user_path(current_user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'mx-2'%></li>
+        <li><%= link_to 'Account', edit_user_path(current_user), class: 'mx-2'%></li>
         <li><%= link_to 'My Wall', user_path(current_user), class: 'mx-2'%></li>
         <li><%= link_to 'Log out', logout_path, class: 'mx-2'%></li>
       </ul>
