@@ -19,4 +19,12 @@ feature 'editing users' do
     click_button 'Update User'
     expect(page).to have_content 'Update Successful!'
   end
+  scenario 'trying to click update button without filling forms' do
+    sign_up
+    click_link 'Edit Account'
+    click_button 'Update User'
+    expect(page).to have_field('user[name]')
+    expect(page).to have_field('user[email]')
+    expect(page).to have_field('user[password]')
+  end
 end
