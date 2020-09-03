@@ -88,9 +88,7 @@ I would like my login to be remembered
 ### Posts
 
 ```
-As a User
-So that I can login easily
-I would like to login from the homepage
+
 ```
 
 ### Comments
