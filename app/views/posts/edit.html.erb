@@ -1,26 +1,5 @@
 <h1>Edit Post</h1>
 
-<%= form_for [@user, @post], url: { controller: "posts", action: "update", user_id: @user.id}, method: :patch do |form| %>
-
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@post.errors.count, "error") %> Post cannot be saved:
-      </h2>
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <p>
-    <%= form.label :message %>
-    <%= form.text_field :message %>
-    <%= form.submit %>
-  </p>
-
-<% end %>
+<%= render 'edit_form' %>
 
 <%= link_to 'Back', user_posts_path %>

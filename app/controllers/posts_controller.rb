@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :logged_in_user
-  
+
   def new
     @user = User.find(params[:user_id])
     @post = Post.new
@@ -8,7 +8,11 @@ class PostsController < ApplicationController
 
   def show
     @user = User.find(params[:user_id])
-    @post = Post.find(params[:id])
+    if Post.find_by(id: params[:id])
+      @post = Post.find(params[:id])
+    else
+      post_not_found
+    end
   end
 
   def create

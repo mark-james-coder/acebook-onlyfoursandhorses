@@ -1,0 +1,6 @@
+<%= form_with(model: [ @user, @user.wallposts.build ], local: true) do |form| %>
+  <%= form.label :message %>
+  <%= form.text_field :content %>
+
+  <%= form.submit "Submit" %>
+<% end %>

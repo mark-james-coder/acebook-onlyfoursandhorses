@@ -1,4 +1,3 @@
-
 <% if current_user.id == @user.id %>
 <h1> My Wall </h1>
 <h2> Write something here for your own records </h2>
@@ -16,34 +15,28 @@
 
 <% else %>
 <h1><%= @user.name %>'s Wall </h1>
+
 <h4> Add a wallpost: </h4>
 
-<%= form_with(model: [ @user, @user.wallposts.build ], local: true) do |form| %>
-  <%= form.label :message %>
-  <br>
-  <%= form.text_area :content %>
-  <br>
-  <%= form.submit "Submit" %>
-<% end %>
-<% end %>
-<table>
+<%= render 'wallposts/new_form' %>
 
-  <% @wallpost.select(&:persisted?).reverse.each do |wpost| %>
-    <tr>
-      <td><b><%= wpost.poster %> </b></td>
+<% end %><br>
 
-      <td><%= wpost.content %></td>
-      <td><%= time_ago_in_words(wpost.created_at) %> ago</td>
-      <% if (wpost.poster == current_user.name) %>
-      <td> <%= link_to 'Edit', edit_user_wallpost_path(@user, wpost.id) %> </td>
-      <% end %>
+<% @wallpost.select(&:persisted?).reverse.each do |wpost| %>
 
-      <% if (wpost.poster == current_user.name) || (wpost.user_id == current_user.id) %>
-        <td><%= link_to 'Delete', [wpost.user, wpost],
-                        method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-    </tr>
+    <%= render 'wallposts/display_posts', wpost: wpost %>
+
+  <ul>
+  <% wpost.wallpostcomments.select(&:persisted?).each do |wpostcomment| %>
+
+    <%= render 'wallpostcomments/display_comments', wpostcomment: wpostcomment %>
+
   <% end %>
-</table>
-<%# link_to 'See Posts', user_posts_path(@user) %>
+  </ul>
+
+  <%= render 'wallpostcomments/new_comment', wpost: wpost %> <br><br>
+
+<% end %>
+
+
+<%= link_to 'See Posts', user_posts_path(@user) %>

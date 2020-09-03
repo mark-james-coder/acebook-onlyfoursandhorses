@@ -7,6 +7,6 @@ class WelcomeController < ApplicationController
     else
       @user = User.new
       render 'index.html.erb'
+    end
   end
-end
 end

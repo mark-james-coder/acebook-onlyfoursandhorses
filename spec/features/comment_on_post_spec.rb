@@ -22,7 +22,7 @@ RSpec.feature 'Comments - posts' do
     fill_in 'postcomment[content]', with: 'Hello to you too!'
     click_button 'Add comment'
     expect(page).to have_content 'Hello to you too!'
-    all(:link, :text => 'Delete')[1].click
+    all(:link, { text: 'Delete' })[1].click
     expect(page).to_not have_content('Hello to you too!')
   end
 end
