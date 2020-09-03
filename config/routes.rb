@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   get 'welcome/index'
 
-  resources :users do
+  resources :users, param: :slug do
     resources :posts do
       resources :postcomments
     end

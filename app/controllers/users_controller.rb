@@ -1,19 +1,13 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: %i[show edit destroy]
 
-  # def revert_url
-  #   unless params[:user_id] == session[:user_id]
-  #     redirect_to action: 'show', id: session[:user_id]
-  #   end
-  # end
-
   def index
     redirect_to '/'
   end
 
   def show
-    if User.find_by(id: params[:id])
-      @user = User.find(params[:id])
+    if User.find_by(slug: params[:slug])
+      @user = User.find_by(slug: params[:slug])
       @wallpost = @user.wallposts
     else
       user_not_found
