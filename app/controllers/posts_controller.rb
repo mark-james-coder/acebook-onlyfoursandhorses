@@ -48,6 +48,13 @@ class PostsController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def add_like
+    @user = User.find_by(slug: params[:user_slug])
+    @post = Post.find_by(id: params[:post_id])
+    @post.update(likes: (@post.likes + 1))
+    redirect_to user_posts_path(@user)
+  end
+
   private
 
   def post_params
