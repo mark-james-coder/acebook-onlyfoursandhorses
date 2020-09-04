@@ -1,4 +1,4 @@
 <%= form_tag(likes_route_path(@user, post.id), :method => "add_like") do %>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
- <%= button_tag "Like", :class => 'btn btn-sm',:id => 'add_like' %>
+ <%= button_tag "Like", :class => 'btn btn-primary btn-sm',:id => 'add_like' %>
 <% end %>

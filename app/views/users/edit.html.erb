@@ -1,9 +1,10 @@
-Edit <%= @user.name %> below
+<br><br>
+<h1>Edit your account info below. </h1>
 <br>
 <br>
 <%= render 'form' %>
-<br>
-<%= link_to 'Delete Account', user_path(current_user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'mx-2'%>
+<br><br><br>
+<%= button_to 'Delete Account', user_path(current_user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
 <br>
 <br>
 <%= link_to 'Back', user_path %>

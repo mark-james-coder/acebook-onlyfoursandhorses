@@ -1,7 +1,16 @@
+
 <b><%= wpost.poster %>
 (<%= time_ago_in_words(wpost.created_at) %> ago):</b> <br>
 <td><%= wpost.content %>
-
+<br>
+<div class="form-inline">
+<% if wpost.likes != 0 %>
+<%= pluralize(wpost.likes, 'like') %> 
+<% end %>
+<div class="group">
+<%= render 'wallposts/likes_button', wpost: wpost %> 
+</div>
+</div>
 <% if (wpost.poster == current_user.name) %>
   <%= link_to 'Edit', edit_user_wallpost_path(@user, wpost.id) %> </td>
 <% end %>
@@ -11,3 +20,4 @@
                   method: :delete,
                   data: { confirm: 'Are you sure?' } %>
 <% end %>
+
