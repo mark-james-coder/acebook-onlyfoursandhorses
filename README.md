@@ -81,18 +81,149 @@ So that I can start using Acebook quickly
 I would like to directed to All Posts after login
 
 As a User
-So that I can navigate around and make use of the website
+So that I can navigate make use of all parts of the website
 I would like my login to be remembered
+
+As a User
+So that I can change my login name and/or email
+I would like to be able to edit my account details
+```
+
+### User Experience
+
+```
+As a User
+So that I can navigate around the website easily
+I would like navigation aids such as nav bar, buttons and links
+
+As a User
+So that I can have a pleasant experience using the website
+I would like the website to have a simple, attractive style
+
+As a User
+So that I know if I try to navigate to a name of user that does not exist
+I would like a custom 404 message to inform me of this
+
+As a User
+So that I know if I try to navigate to a post that does not exist
+I would like a custom 404 message to inform me of this
+
+As a User
+So that I can easily go to another user's Wall
+I would like the url of their Wall to end with their username
+
 ```
 
 ### Posts
 
 ```
+As a User
+So that I can communicate with others
+I would like to be able to create posts
+
+As a User
+So that I can change my posts
+I would like to be able to edit posts
+
+As a User
+So that I can remove my posts
+I would like to be delete posts
+
+As a User
+So that I can see my own and other's posts
+I would like to have an All Posts page
+
+As a User
+So that other users can see my posts
+I would like to have an All Posts page
+
+As a User
+So that I can see new posts easily
+I would like to see the newest posts first
+
+As a User
+So that I can seen when posts were made
+I would like be informed how long ago they were made
+
+As a User
+So that I can express my opinion on a post
+I would like to be able to make comments
+
+As a User
+So that I can remove my opinion on a post
+I would like to be able to delete comments
+
+As a User
+So that I can see others' opinions on a post
+I would like to be see comments
+
+As a User
+So that I can know if others liked my posts
+I would like others to be able to 'Like' them
+
+As a User
+So that I can show I liked others posts
+I would like to be able to 'Like' them
+
+As a User
+So that I feel more secure
+I would like only logged in users to be able to see and create posts
+```
+
+### Wall
+
+```
+As a User
+So that I can communicate with others in my own space
+I would like to be able to post on my own Wall
+
+As a User
+So that others can communicate with me in my own space
+I would like others to be able to post on my Wall
+
+As a User
+So that I can change my Wall posts
+I would like to be able to edit posts
+
+As a User
+So that I can remove my Wall posts
+I would like to be delete posts
+
+As a User
+So that I can seen when posts on my Wall were made
+I would like be informed how long ago they were made
+
+As a User
+So that I can know if others liked my Wall posts
+I would like there to be a Like button
+
+As a User
+So that I can easily visit someone's Wall
+I would like there to be a search field to take me there
+
+As a User
+So that I feel more secure
+I would like only logged in users to be able to see and post on my Wall
+
+As a User
+So that my Wall posts remain secure
+I would like only the poster or Wall owner to be able to remove them
 
 ```
 
-### Comments
+### Sign Out and Account Deletion
 
-### Likes
+```
+As a User
+So that I know I am signed out
+I would like to be taken back the homepage on signout
 
-### Wall
+As a User
+So that I can remove my account from the database
+I would like to be able to delete my account
+
+```
+
+
+
+
