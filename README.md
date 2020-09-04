@@ -1,10 +1,7 @@
 <img width="338" alt="acebook logo" src="https://user-images.githubusercontent.com/55639318/92245684-9f2cd800-eebc-11ea-93a5-6bf824bb125e.png">
 
 # (Rails Facebook Clone)
-<br>
-Team:
-<br>
-<img width="950" alt="Screenshot 2020-09-03 at 23 05 27" src="https://user-images.githubusercontent.com/55639318/92249546-3183aa80-eec2-11ea-901e-516a14daa4d5.png">
+
 <br>
 
 ## Project on heroku:
