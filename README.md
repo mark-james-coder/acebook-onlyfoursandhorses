@@ -25,11 +25,13 @@ First, clone this repository. Then:
 <br>
 
 ## Wireframe
+<br>
 <img width="632" alt="Screenshot 2020-08-28 at 17 16 38" src="https://user-images.githubusercontent.com/55639318/92246256-6a6d5080-eebd-11ea-9214-1ec08f0ef49a.png">
 
 <br>
 
 ## Database Schema
+<br>
 <img width="855" alt="Screenshot 2020-09-03 at 20 25 15" src="https://user-images.githubusercontent.com/55639318/92246629-f1222d80-eebd-11ea-9936-94262b3de8b7.png">
 <br>
 
