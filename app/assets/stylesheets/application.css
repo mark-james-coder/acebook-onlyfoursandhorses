@@ -61,3 +61,7 @@
 .created_by {
   font-style: italic;
 }
+.register_error {
+  color: red;
+  font-style: italic;
+}

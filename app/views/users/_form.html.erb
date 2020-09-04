@@ -2,9 +2,9 @@
 
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2>
+      <h4 class='register_error'>
         <%= pluralize(@user.errors.count, "error") %> Please fill all fields.
-      </h2>
+      </h4>
       <ul>
         <% @user.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -27,8 +27,8 @@
     <%= form.label :password %><br>
     <%= form.password_field :password %>
   </p>
-
+<br>
   <p>
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-success'%>
   </p>
 <% end %>
