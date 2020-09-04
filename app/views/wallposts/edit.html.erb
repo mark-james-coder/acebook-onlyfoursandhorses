@@ -1,5 +1,6 @@
+<br><br><br>
 <h2> Edit your post on <%= @user.name%>'s wall </h2>
-
+<br>
 <% if @wallpost.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -18,8 +19,8 @@
     <%= form.label :message %>
     <br>
     <%= form.text_area :content %>
-    <br>
-    <%= form.submit %>
+    <br> <br>
+    <%= form.submit class: 'btn btn-success'%>
   </p>
 
 <% end %>

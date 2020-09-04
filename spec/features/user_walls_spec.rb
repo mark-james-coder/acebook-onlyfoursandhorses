@@ -15,6 +15,6 @@ RSpec.feature 'User Walls' do
     sign_up_another_account
     visit '/users/test-johnson'
     click_link 'Account'
-    expect(page).to have_content 'Player 2'
+    expect(current_path).to eq '/users/player-2/edit'
   end
 end

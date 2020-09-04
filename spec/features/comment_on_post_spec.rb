@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Comments - posts' do
   scenario 'user can add comments on posts' do
     sign_up
-    click_link 'See Posts'
+    click_link 'Posts'
     click_link 'New post'
     fill_in 'post[message]', with: 'Hello, world!'
     click_button 'Submit'
@@ -14,7 +14,7 @@ RSpec.feature 'Comments - posts' do
   end
   scenario 'user can delete comments on posts' do
     sign_up
-    click_link 'See Posts'
+    click_link 'Posts'
     click_link 'New post'
     fill_in 'post[message]', with: 'Hello, world!'
     click_button 'Submit'

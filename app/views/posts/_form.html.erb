@@ -13,8 +13,8 @@
  </div>
 <% end %>
 
-<%= form.label :message %>
-<%= form.text_field :message %>
+<%= form.label :message %> <br>
+<%= form.text_area :message %> <br><br>
 
-<%= form.submit "Submit" %>
+<%= form.submit "Submit", class: 'btn btn-success' %>
 <% end %>

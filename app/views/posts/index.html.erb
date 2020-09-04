@@ -1,40 +1,47 @@
+<br><br>
 <h1>All Posts</h1>
-<%= link_to 'New post', new_user_post_path(@user) %>
-<table>
+<%= link_to 'New post', new_user_post_path(@user) %> <br><br><br>
+
 
   <% @posts.reverse.each do |post| %>
-    <tr>
-      <td><strong><%= post.user.name %>  </strong></td>
-      <td>(<%= time_ago_in_words(post.created_at) %> ago):</td>
-      <td><%= post.message %></td>
+    
+      <b><%= post.user.name %>  </b>
+      (<%= time_ago_in_words(post.created_at) %> ago):
+     <br>
+     <%= post.message %> <br>
+     <div class="form-inline">
+     <div class="group">
+     <%= render 'likes_button', post: post %>
+     </div>
       <% if post.likes != 0 %>
-        <td><%= pluralize(post.likes, 'like') %> </td>
+       <%= pluralize(post.likes, 'like') %> 
       <% end %>
-      <td><%= render 'likes_button', post: post %> </td>
-      <td><%= link_to 'Show', user_post_path(@user, post.id)%></td>
+     
+     </div> 
+     <%= link_to 'Show', user_post_path(@user, post.id)%>
       <% if post.user.id == current_user.id %>
-        <td><%= link_to 'Delete', [post.user, post],
+       <%= link_to 'Delete', [post.user, post],
                         method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
+                        data: { confirm: 'Are you sure?' } %>
       <% end %>
-    </tr>
+    <br><br><br>
   <% end %>
-</table>
+
 
 <!--<h2>Your Posts</h2>
-<table>
+
 <% @user.posts.reverse.each do |post| %>
   <p>
     <strong>Post:</strong>
   </p>
   <strong>Post ID:</strong>
     <%= post.id %><br>
-  <tr>
-      <td><%= post.message %></td>
-      <td><%= link_to 'Show', user_post_path(@user, post.id) %></td>
-      <td><%= link_to 'Delete', [post.user, post],
+ 
+     <%= post.message %>
+     <%= link_to 'Show', user_post_path(@user, post.id) %>
+     <%= link_to 'Delete', [post.user, post],
                         method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    </table>
+                        data: { confirm: 'Are you sure?' } %>
+   
+
 <% end %>-->
