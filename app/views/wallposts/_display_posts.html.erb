@@ -1,5 +1,5 @@
 <b><%= wpost.poster %>
-(<%= time_ago_in_words(wpost.created_at) %> ago):</b>
+(<%= time_ago_in_words(wpost.created_at) %> ago):</b> <br>
 <td><%= wpost.content %>
 
 <% if (wpost.poster == current_user.name) %>
@@ -10,4 +10,4 @@
   <%= link_to 'Delete', [wpost.user, wpost],
                   method: :delete,
                   data: { confirm: 'Are you sure?' } %>
-<% end %><br>
+<% end %>

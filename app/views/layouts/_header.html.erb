@@ -3,10 +3,10 @@
     <div class='navbar-header'>
     <% if logged_in? %>
       <%= link_to user_posts_path(current_user) do %>
-      <%=image_tag("acebook_logo.png", size: "210x70")%>
+      <%=image_tag("acebook_logo2.png", size: "156x42")%>
         <% end %>
       <% else %>
-      <%=image_tag("acebook_logo.png", size: "210x70")%>
+      <%=image_tag("acebook_logo2.png", size: "156x42")%>
     <% end %>
     </div>
    
@@ -14,7 +14,7 @@
     <%= form_tag(search_path, :method => "search",   
     class: 'navbar-form navbar-left') do %>  
   <div class="input-group">  
-    <%= search_field_tag :search, params[:search], placeholder: "Enter user's name", class: "form-control" %>  
+    <%= search_field_tag :search, params[:search], placeholder: "Go to user's wall", class: "form-control" %>  
     <div class="input-group-btn">  
       <%= button_tag "Search", :class => 'btn btn-info',:id => 'search_user'%>  
       

@@ -1,16 +1,18 @@
+<div class="container"> 
+<div class="row">
 <% if current_user.id == @user.id %>
+<div class="col-8">
+<br> <br> <br>
 <h1> My Wall </h1>
-<h2> Write something here for your own records </h2>
-<p> If you want to post to general feed, go to <%= link_to 'Posts', user_posts_path(@user) %></p>
-<%# link_to 'Edit User', edit_user_path(@user) %>
-<%# link_to 'Delete User', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %>
+<h3> See who's left their mark. </h3> <br>
+<p> If you want to post to general feed, go to <%= link_to 'Posts', user_posts_path(@user) %>.</p> <br>
 
-<%= form_with(model: [ @user, @user.wallposts.build ], local: true) do |form| %>
-  <%= form.label :message %>
+<%= form_with(model: [ @user, @user.wallposts.build ], local: true, class: "form-group") do |form| %>
+  <%= form.label :message, "New wallpost:" %>
   <br>
   <%= form.text_area :content %>
-  <br>
-  <%= form.submit "Submit" %>
+  <br> <br>
+  <%= form.submit "Submit", class: "btn btn-success" %>
 <% end %>
 
 <% else %>
@@ -21,14 +23,17 @@
 <%= render 'wallposts/new_form' %>
 
 <% end %><br>
-
+<%= link_to 'See Posts', user_posts_path(@user) %>
+</div>
+<div class= "col-4">
+<br> <br> <br>
 <% @wallpost.select(&:persisted?).reverse.each do |wpost| %>
 
-    <%= render 'wallposts/display_posts', wpost: wpost %>
+    <td><%= render 'wallposts/display_posts', wpost: wpost %>
     <% if wpost.likes != 0 %>
-        <td><%= pluralize(wpost.likes, 'like') %> </td>
+        <%= pluralize(wpost.likes, 'like') %> 
     <% end %>
-    <td><%= render 'wallposts/likes_button', wpost: wpost %> </td>
+    <%= render 'wallposts/likes_button', wpost: wpost %> </td>
 
   <ul>
   <% wpost.wallpostcomments.select(&:persisted?).each do |wpostcomment| %>
@@ -43,4 +48,7 @@
 <% end %>
 
 
-<%= link_to 'See Posts', user_posts_path(@user) %>
+
+</div>
+</div>
+</div>
