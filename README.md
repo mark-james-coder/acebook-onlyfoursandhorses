@@ -66,7 +66,7 @@ I would like the validity of my email address format to be checked
 
 As a new User
 So that I can start using Acebook quickly
-I would like to directed to My Wall after signing up
+I would like to be directed to My Wall after signing up
 
 As a new User
 So that I know I have successfully signed up
