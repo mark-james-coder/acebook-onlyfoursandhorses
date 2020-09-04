@@ -2,7 +2,7 @@
 
 ## Project on heroku:
 
-http://********.herokuapp.com
+http://intense-scrubland-58731.herokuapp.com
 
 ## Instructions to use locally:
 
