@@ -4,12 +4,13 @@
 <td><%= wpost.content %>
 <br>
 <div class="form-inline">
-<% if wpost.likes != 0 %>
-<%= pluralize(wpost.likes, 'like') %> 
-<% end %>
 <div class="group">
 <%= render 'wallposts/likes_button', wpost: wpost %> 
 </div>
+<% if wpost.likes != 0 %>
+<%= pluralize(wpost.likes, 'like') %> 
+<% end %>
+
 </div>
 <% if (wpost.poster == current_user.name) %>
   <%= link_to 'Edit', edit_user_wallpost_path(@user, wpost.id) %> </td>

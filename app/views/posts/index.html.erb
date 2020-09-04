@@ -10,12 +10,13 @@
      <br>
      <%= post.message %> <br>
      <div class="form-inline">
-      <% if post.likes != 0 %>
-       <%= pluralize(post.likes, 'like') %> 
-      <% end %>
      <div class="group">
      <%= render 'likes_button', post: post %>
      </div>
+      <% if post.likes != 0 %>
+       <%= pluralize(post.likes, 'like') %> 
+      <% end %>
+     
      </div> 
      <%= link_to 'Show', user_post_path(@user, post.id)%>
       <% if post.user.id == current_user.id %>

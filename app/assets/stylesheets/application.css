@@ -56,5 +56,8 @@
   font-style: italic;
 }
 .form-inline .group{
-  margin-left: 8px;
+  margin-right: 8px;
+}
+.created_by {
+  font-style: italic;
 }

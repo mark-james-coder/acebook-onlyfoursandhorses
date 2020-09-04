@@ -1,8 +1,12 @@
+<br><br><br>
 <p>
-
+<h1> <%= @post.user.name %>'s Post: </h1>
+<br><br>
 <p style="white-space: pre-line"><%= @post.message %></p>
 <br>
-<p> Created by <b><%= @post.user.name %></b> at <%= @post.created_at.in_time_zone("London").strftime('%B %d %Y, %l:%M%P') %> </p>
+<p><div class="created_by">
+Created by <b><%= @post.user.name %></b> on <%= @post.created_at.in_time_zone("London").strftime('%B %d %Y, %l:%M%P') %> </p>
+</div>
 <br>
 <% if @post.user.id == current_user.id %>
   <%= link_to 'Update', edit_user_post_path(@user) %>
@@ -15,7 +19,7 @@
 
 <% @post.postcomments.select(&:persisted?).each do |pc| %>
   <li><b><%= pc.commenter %></b>
-  (<%= time_ago_in_words(pc.created_at) %> ago):
+  <i>(<%= time_ago_in_words(pc.created_at) %> ago): </i>
   <%= pc.content %>
   <% if pc.commenter == current_user.name %>
     <%= link_to 'Delete comment', [@user, pc.post, pc],
@@ -27,10 +31,10 @@
 
 <%= form_for [@post, @post.postcomments.build], url: { controller: :postcomments, action: :create, post_id: @post.id }, method: :create do |form| %>
   <%= form.text_field :content %>
-  <%= form.submit 'Add comment'%>
+  <%= form.submit 'Add comment', class: 'btn btn-success'%>
 <% end %>
 
-
+<br> <br>
 </p>
 
-<%= link_to 'All posts', user_posts_path %>
+<%= link_to 'Back to all posts', user_posts_path %>
