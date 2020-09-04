@@ -21,7 +21,7 @@ First, clone this repository. Then:
 ```
 
 ## Wireframe
-
+<img width="632" alt="Screenshot 2020-08-28 at 17 16 38" src="https://user-images.githubusercontent.com/55639318/92246256-6a6d5080-eebd-11ea-9214-1ec08f0ef49a.png">
 ## Database Schema
 
 
