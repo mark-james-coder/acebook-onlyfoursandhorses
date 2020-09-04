@@ -66,7 +66,7 @@ I would like the validity of my email address format to be checked
 
 As a new User
 So that I can start using Acebook quickly
-I would like to directed to All Posts after signing up
+I would like to directed to My Wall after signing up
 
 As a new User
 So that I know I have successfully signed up
@@ -99,7 +99,7 @@ I would like to see a welcome message
 
 As a User
 So that I can start using Acebook quickly
-I would like to directed to All Posts after login
+I would like to directed to My Wall after login
 
 As a User
 So that I can navigate make use of all parts of the website
