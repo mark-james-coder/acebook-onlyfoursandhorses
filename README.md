@@ -30,7 +30,7 @@ First, clone this repository. Then:
 <br>
 
 ## Database Schema
-
+<img width="855" alt="Screenshot 2020-09-03 at 20 25 15" src="https://user-images.githubusercontent.com/55639318/92246629-f1222d80-eebd-11ea-9936-94262b3de8b7.png">
 <br>
 
 ## User Stories
