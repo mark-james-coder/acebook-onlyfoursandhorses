@@ -6,7 +6,7 @@
 ## Project on heroku:
 
 http://intense-scrubland-58731.herokuapp.com
-
+<br>
 ## Instructions to use locally:
 
 First, clone this repository. Then:
@@ -19,12 +19,13 @@ First, clone this repository. Then:
 > bundle exec rspec # Run the tests to ensure it works
 > bin/rails server # Start the server at localhost:3000
 ```
-
+<br>
 ## Wireframe
 <img width="632" alt="Screenshot 2020-08-28 at 17 16 38" src="https://user-images.githubusercontent.com/55639318/92246256-6a6d5080-eebd-11ea-9214-1ec08f0ef49a.png">
+<br>
 ## Database Schema
 
-
+<br>
 ## User Stories
 
 ### Sign Up
